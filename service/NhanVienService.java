@@ -5,6 +5,7 @@
 package service;
 
 import Interface.iNhanVien;
+import exceptions.NhanVienException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -58,9 +59,9 @@ public class NhanVienService implements iNhanVien{
             }
             logger.log(Level.INFO, "Loaded employee data successfully");
         } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Failed to load employee data", e);
+            logger.log(Level.SEVERE, "Load nhân viên thất bại", e);
+            throw NhanVienException.databaseError("Lỗi khi lấy danh sách nhân viên", e);
         }
-
         return nvs;
     }
 
@@ -84,8 +85,8 @@ public class NhanVienService implements iNhanVien{
             logger.log(Level.INFO, "Added new employee: {0}", nv.toString());
             return rowsAffected;
         } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Error adding new employee", e);
-            return 0;
+            logger.log(Level.SEVERE, "Lỗi khi thêm nhân viên", e);
+            throw NhanVienException.databaseError("Lỗi khi thêm nhân viên", e);
         }
     }
 
@@ -108,8 +109,8 @@ public class NhanVienService implements iNhanVien{
             logger.log(Level.INFO, "Updated employee: {0}", nv.toString());
             return rowsAffected;
         } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Error updating employee", e);
-            return 0;
+            logger.log(Level.SEVERE, "Lỗi khi cập nhật nhân viên", e);
+            throw NhanVienException.databaseError("Lỗi khi cập nhật nhân viên", e);
         }
     }
 
@@ -124,9 +125,9 @@ public class NhanVienService implements iNhanVien{
             int rowsAffected = ps.executeUpdate();
             logger.log(Level.INFO, "Deleted employee: {0}", nv.toString());
             return rowsAffected;
-        } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Error deleting employee", e);
-            return 0;
+        }  catch (SQLException e) {
+            logger.log(Level.SEVERE, "Lỗi khi xóa nhân viên", e);
+            throw NhanVienException.databaseError("Lỗi khi xóa nhân viên", e);
         }
     }
 }

@@ -130,6 +130,7 @@ public class QLNV extends javax.swing.JFrame {
         jp2TimKiem = new javax.swing.JPanel();
         lblTimKiem = new javax.swing.JLabel();
         txtTimKiem = new javax.swing.JTextField();
+        btnTimKien = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblMa = new javax.swing.JLabel();
         txtMa = new javax.swing.JTextField();
@@ -178,6 +179,13 @@ public class QLNV extends javax.swing.JFrame {
 
         lblTimKiem.setText("Mã NV");
 
+        btnTimKien.setText(" Tìm Kiếm");
+        btnTimKien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimKienActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jp2TimKiemLayout = new javax.swing.GroupLayout(jp2TimKiem);
         jp2TimKiem.setLayout(jp2TimKiemLayout);
         jp2TimKiemLayout.setHorizontalGroup(
@@ -187,14 +195,18 @@ public class QLNV extends javax.swing.JFrame {
                 .addComponent(lblTimKiem)
                 .addGap(34, 34, 34)
                 .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(btnTimKien)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         jp2TimKiemLayout.setVerticalGroup(
             jp2TimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp2TimKiemLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(19, 19, 19)
                 .addGroup(jp2TimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jp2TimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnTimKien))
                     .addComponent(lblTimKiem))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -283,9 +295,8 @@ public class QLNV extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                        .addComponent(jp2TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(121, 121, 121))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jp2TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -320,8 +331,8 @@ public class QLNV extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSua)
                             .addComponent(btnThem)
-                            .addComponent(btnLamMoi))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnLamMoi))))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,7 +383,7 @@ public class QLNV extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDiaCHi)
                     .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -409,8 +420,21 @@ public class QLNV extends javax.swing.JFrame {
 
     private void tblNVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNVMouseClicked
         // TODO add your handling code here:
-        int index = tblNV.getSelectedRow();
-        fillForm(list.get(index));
+       int index = tblNV.getSelectedRow();
+//        fillForm(list.get(index));
+         if (index != -1) {
+        // Lấy mã nhân viên từ bảng
+        String maNV = tblNV.getValueAt(index, 0).toString();
+        
+        // Tìm nhân viên trong danh sách theo mã
+        for (NhanVien nv : list) {
+            if (nv.getMaNV().equalsIgnoreCase(maNV)) {
+                // Điền thông tin nhân viên lên form
+                fillForm(nv);
+                break;
+            }
+        }
+    }
     }//GEN-LAST:event_tblNVMouseClicked
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
@@ -422,6 +446,32 @@ public class QLNV extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Sua that bai");
     }
     }//GEN-LAST:event_btnSuaActionPerformed
+
+    private void btnTimKienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKienActionPerformed
+        // TODO add your handling code here:
+         String maTimKiem = txtTimKiem.getText().trim();
+    
+    // Kiểm tra nếu ô tìm kiếm không rỗng
+    if (!maTimKiem.isEmpty()) {
+        // Tìm kiếm nhân viên theo mã
+        List<NhanVien> ketQuaTimKiem = new ArrayList<>();
+        for (NhanVien nv : list) {
+            if (nv.getMaNV().equalsIgnoreCase(maTimKiem)) {
+                ketQuaTimKiem.add(nv);
+                break; // Dừng tìm kiếm sau khi tìm thấy
+            }
+        }
+        
+        // Cập nhật bảng với kết quả tìm kiếm
+        dtm.setRowCount(0);
+        for (NhanVien nv : ketQuaTimKiem) {
+            dtm.addRow(nv.toRowTable());
+        }
+    } else {
+        // Nếu ô tìm kiếm rỗng, hiển thị lại toàn bộ danh sách
+        fillTable();
+    }
+    }//GEN-LAST:event_btnTimKienActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,6 +512,7 @@ public class QLNV extends javax.swing.JFrame {
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnTimKien;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;

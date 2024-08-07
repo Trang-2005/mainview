@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.ChiTietSP;
+import model.SanPham;
 
 
 /**
@@ -39,24 +39,25 @@ public class ChiTietSanPhamService implements iChiTietSP {
     
     
     
-    public List<ChiTietSP> getAllCTSP() {
-        List<ChiTietSP> ctsp = new ArrayList<>();
+    public List<SanPham> getAllCTSP() {
+        List<SanPham> ctsp = new ArrayList<>();
         String sql = "SELECT * FROM ChiTietSanPham";
         try (Connection cnt = dcm.getConnection();
              PreparedStatement pre = cnt.prepareStatement(sql);
              ResultSet rs = pre.executeQuery()) {
 
             while (rs.next()) {
-                ChiTietSP ct = new ChiTietSP();
-                ct.setMaSPCT(rs.getString("MaSPCT"));
-                ct.setTenSP(rs.getString("TenSP"));
-                ct.setGia((float) rs.getDouble("Gia"));
-                ct.setSoLuong(rs.getInt("SoLuong"));
-                ct.setChatLieu(rs.getString("ChatLieu"));
-                ct.setKichThuoc(rs.getString("KichThuoc"));
-                ct.setMauSac(rs.getString("MauSac"));
-                ct.setTrangThai(rs.getInt("TrangThai"));
+                SanPham ct = new SanPham();
+               
+                ct.setMaSP(rs.getString("MaSP"));
                 
+//                ct.setGia((float) rs.getDouble("Gia"));
+//                ct.setSoLuong(rs.getInt("SoLuong"));
+//                ct.setChatLieu(rs.getString("ChatLieu"));
+//                ct.setKichThuoc(rs.getString("KichThuoc"));
+//                ct.setMauSac(rs.getString("MauSac"));
+//                ct.setTrangThai(rs.getInt("TrangThai"));
+//                
                 ctsp.add(ct);
             }
             logger.log(Level.INFO, "Load sản phẩm thành công");
@@ -67,20 +68,20 @@ public class ChiTietSanPhamService implements iChiTietSP {
         return ctsp;
     }
     
-    public int them(ChiTietSP ctsp) {
+    public int them(SanPham ctsp) {
         String sql = "INSERT INTO ChiTietSanPham (MaSPCT, TenSP, Gia, SoLuong, ChatLieu, KichThuoc, MauSac, TrangThai ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection cnt = dcm.getConnection();
              PreparedStatement pre = cnt.prepareStatement(sql)) {
 
-            pre.setString(1, ctsp.getMaSPCT());
-            pre.setString(2, ctsp.getTenSP());
-            pre.setDouble(3, ctsp.getGia());
-            pre.setInt(4, ctsp.getSoLuong());
-            pre.setString(5, ctsp.getChatLieu());
-            pre.setString(6, ctsp.getKichThuoc());
-             pre.setString(8, ctsp.getMauSac());
-            pre.setInt(7, ctsp.getTrangThai());
-           
+//            pre.setString(1, ctsp.getMaSPCT());
+//            pre.setString(2, ctsp.getTenSP());
+//            pre.setDouble(3, ctsp.getGia());
+//            pre.setInt(4, ctsp.getSoLuong());
+//            pre.setString(5, ctsp.getChatLieu());
+//            pre.setString(6, ctsp.getKichThuoc());
+//            pre.setString(8, ctsp.getMauSac());
+//            pre.setInt(7, ctsp.getTrangThai());
+//           
 
             int rowsAffected = pre.executeUpdate();
             logger.log(Level.INFO, "Thêm sản phẩm mới: {0}", ctsp.toString());
@@ -91,19 +92,19 @@ public class ChiTietSanPhamService implements iChiTietSP {
         }
     }
 
-    public int capnhat(ChiTietSP ctsp) {
+    public int capnhat(SanPham ctsp) {
         String sql = "UPDATE SanPham SET TenSP = ?, Gia = ?, SoLuong = ?, ChatLieu = ?, KichThuoc = ? , MauSac = ?, TrangThai = ? WHERE MaSPCT = ?";
         try (Connection cnt = dcm.getConnection();
              PreparedStatement pre = cnt.prepareStatement(sql)) {
-
-            pre.setString(1, ctsp.getTenSP());
-            pre.setDouble(2, ctsp.getGia());
-            pre.setInt(3, ctsp.getSoLuong());
-            pre.setString(4, ctsp.getChatLieu());
-            pre.setString(5, ctsp.getKichThuoc());
-            pre.setString(6, ctsp.getMauSac());
-            pre.setInt(7, ctsp.getTrangThai());
-            pre.setString(8, ctsp.getMaSPCT());
+//
+//            pre.setString(1, ctsp.getTenSP());
+//            pre.setDouble(2, ctsp.getGia());
+//            pre.setInt(3, ctsp.getSoLuong());
+//            pre.setString(4, ctsp.getChatLieu());
+//            pre.setString(5, ctsp.getKichThuoc());
+//            pre.setString(6, ctsp.getMauSac());
+//            pre.setInt(7, ctsp.getTrangThai());
+//            pre.setString(8, ctsp.getMaSPCT());
 
             int rowsAffected = pre.executeUpdate();
             logger.log(Level.INFO, "Cập nhật sản phẩm: {0}", ctsp.toString());
@@ -114,12 +115,12 @@ public class ChiTietSanPhamService implements iChiTietSP {
         }
     }
     
-    public int xoa(ChiTietSP ctsp) {
+    public int xoa(SanPham ctsp) {
         String sql = "DELETE FROM ChiTietSanPham WHERE MaSPCT = ?";
         try (Connection cnt = dcm.getConnection();
              PreparedStatement pre = cnt.prepareStatement(sql)) {
 
-           pre.setString(1, ctsp.getMaSPCT());
+           
 
             int rowsAffected = pre.executeUpdate();
             logger.log(Level.INFO, "Xóa sản phẩm: {0}", ctsp.toString());

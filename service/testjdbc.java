@@ -15,7 +15,7 @@ public class testjdbc {
                  ResultSet rss = pre.executeQuery()) {
 
                 while (rss.next()) {
-                    System.out.println(rss.getInt(1) + " " + rss.getString(2)+rss.getString(3));
+                    System.out.println(rss.getString(1) + " " + rss.getString(2)+rss.getString(3));
                 }
                 System.out.println("done");
 

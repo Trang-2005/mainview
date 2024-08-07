@@ -5,8 +5,8 @@
 package service;
 
 import Interface.iKhachHang;
+import exceptions.KhachHangException;
 import exceptions.dbexception;
-import exceptions.khachhangexception;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -76,7 +76,7 @@ public class KhachHangService implements iKhachHang {
             return rowsAffected;
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Lỗi khi thêm khách hàng", e);
-            throw new khachhangexception("Lỗi khi thêm khách hàng", e);
+            throw new KhachHangException("Lỗi khi thêm khách hàng", e);
         }
     }
 
@@ -96,7 +96,7 @@ public class KhachHangService implements iKhachHang {
             return rowsAffected;
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Lỗi khi cập nhật khách hàng", e);
-            throw new khachhangexception("Lỗi khi cập nhật khách hàng", e);
+            throw new KhachHangException("Lỗi khi cập nhật khách hàng", e);
         }
     }
 
@@ -113,7 +113,7 @@ public class KhachHangService implements iKhachHang {
             return rowsAffected;
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "lỗi khi xóa khách hàng", e);
-            throw new khachhangexception("Lỗi khi xóa khách hàng", e);  
+            throw new KhachHangException("Lỗi khi xóa khách hàng", e);  
         }
     }
 }

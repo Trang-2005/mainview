@@ -10,12 +10,16 @@ import java.sql.Date;
  *
  * @author maytinh
  */
+
+
 public class DonHang {
     private String MaDH;
     private String MaNV;
     private String MaKH;
-    private Date Ngay;
+    private Date NgayMua;
+    private String TrangThai;
     private double TongTien;
+    private String PhuongThucTT;
 
     public DonHang() {
     }
@@ -44,12 +48,20 @@ public class DonHang {
         this.MaKH = MaKH;
     }
 
-    public Date getNgay() {
-        return Ngay;
+    public Date getNgayMua() {
+        return NgayMua;
     }
 
-    public void setNgay(Date Ngay) {
-        this.Ngay = Ngay;
+    public void setNgayMua(Date NgayMua) {
+        this.NgayMua = NgayMua;
+    }
+
+    public String getTrangThai() {
+        return TrangThai;
+    }
+
+    public void setTrangThai(String TrangThai) {
+        this.TrangThai = TrangThai;
     }
 
     public double getTongTien() {
@@ -60,20 +72,30 @@ public class DonHang {
         this.TongTien = TongTien;
     }
 
-    public DonHang(String MaDH, String MaNV, String MaKH, Date Ngay, double TongTien) {
+    public String getPhuongThucTT() {
+        return PhuongThucTT;
+    }
+
+    public void setPhuongThucTT(String PhuongThucTT) {
+        this.PhuongThucTT = PhuongThucTT;
+    }
+
+    public DonHang(String MaDH, String MaNV, String MaKH, Date NgayMua, String TrangThai, double TongTien, String PhuongThucTT) {
         this.MaDH = MaDH;
         this.MaNV = MaNV;
         this.MaKH = MaKH;
-        this.Ngay = Ngay;
+        this.NgayMua = NgayMua;
+        this.TrangThai = TrangThai;
         this.TongTien = TongTien;
+        this.PhuongThucTT = PhuongThucTT;
     }
 
     @Override
     public String toString() {
-        return "DonHang{" + "MaDH=" + MaDH + ", MaNV=" + MaNV + ", MaKH=" + MaKH + ", Ngay=" + Ngay + ", TongTien=" + TongTien + '}';
+        return "DonHang{" + "MaDH=" + MaDH + ", MaNV=" + MaNV + ", MaKH=" + MaKH + ", NgayMua=" + NgayMua + ", TrangThai=" + TrangThai + ", TongTien=" + TongTien + ", PhuongThucTT=" + PhuongThucTT + '}';
     }
+
     public Object[] toDataRow(){
-        return new Object[]{this.getMaDH(),this.getMaNV(),this.getMaKH(),this.getNgay(),this.getTongTien()};
+        return new Object[]{this.getMaDH(), this.getMaNV(), this.getMaKH(), this.getNgayMua(), this.getTrangThai(), this.getTongTien(), this.getPhuongThucTT()};
     }
-    
 }

@@ -4,35 +4,40 @@
  */
 package model;
 
-import java.sql.Date;
+import java.math.BigDecimal;
 
 /**
  *
- * @author maytinh
+ * @author Admin
  */
 public class SanPham {
+    
     private String MaSP;
     private String TenSP;
-    private float Gia;
+    private int gia;
     private int SoLuong;
-    private int trangThai;
-    private String tenLoai;
-    private String XuatXu;
-    private Date NgayNhap; 
+    private String nhaCC;
+    private String ChatLieu;
+    private String Size;
+    private String MauSac;
 
     public SanPham() {
     }
 
-    public SanPham(String MaSP, String TenSP, float Gia, int SoLuong, int trangThai, String tenLoai, String XuatXu, Date NgayNhap) {
+    public SanPham(String MaSP, String TenSP, int gia, int SoLuong, String nhaCC, String ChatLieu, String Size, String MauSac) {
         this.MaSP = MaSP;
         this.TenSP = TenSP;
-        this.Gia = Gia;
+        this.gia = gia;
         this.SoLuong = SoLuong;
-        this.trangThai = trangThai;
-        this.tenLoai = tenLoai;
-        this.XuatXu = XuatXu;
-        this.NgayNhap = NgayNhap;
+        this.nhaCC = nhaCC;
+        this.ChatLieu = ChatLieu;
+        this.Size = Size;
+        this.MauSac = MauSac;
     }
+
+    
+    
+    
 
     public String getMaSP() {
         return MaSP;
@@ -50,13 +55,15 @@ public class SanPham {
         this.TenSP = TenSP;
     }
 
-    public float getGia() {
-        return Gia;
+    public int getGia() {
+        return gia;
     }
 
-    public void setGia(float Gia) {
-        this.Gia = Gia;
+    public void setGia(int gia) {
+        this.gia = gia;
     }
+
+   
 
     public int getSoLuong() {
         return SoLuong;
@@ -66,56 +73,46 @@ public class SanPham {
         this.SoLuong = SoLuong;
     }
 
-    public int getTrangThai() {
-        return trangThai;
+    public String getNhaCC() {
+        return nhaCC;
     }
 
-    public void setTrangThai(int trangThai) {
-        this.trangThai = trangThai;
+    public void setNhaCC(String nhaCC) {
+        this.nhaCC = nhaCC;
     }
 
-    public String getTenLoai() {
-        return tenLoai;
+    public String getChatLieu() {
+        return ChatLieu;
     }
 
-    public void setTenLoai(String tenLoai) {
-        this.tenLoai = tenLoai;
+    public void setChatLieu(String ChatLieu) {
+        this.ChatLieu = ChatLieu;
     }
 
-    public String getXuatXu() {
-        return XuatXu;
+    public String getSize() {
+        return Size;
     }
 
-    public void setXuatXu(String XuatXu) {
-        this.XuatXu = XuatXu;
+    public void setSize(String Size) {
+        this.Size = Size;
     }
 
-    public Date getNgayNhap() {
-        return NgayNhap;
+    public String getMauSac() {
+        return MauSac;
     }
 
-    public void setNgayNhap(Date NgayNhap) {
-        this.NgayNhap = NgayNhap;
+    public void setMauSac(String MauSac) {
+        this.MauSac = MauSac;
     }
-
-    
-
-   
 
     @Override
     public String toString() {
-        return "SanPham{" + "MaSP=" + MaSP + ", TenSP=" + TenSP + ", Gia=" + Gia + ", SoLuong=" + SoLuong + ", NgayNhap=" + NgayNhap + ", tenLoai=" + tenLoai + ", trangThai=" + trangThai + ", XuatXu=" + XuatXu + '}';
+        return "SanPham{" + "MaSP=" + MaSP + ", TenSP=" + TenSP + ", gia=" + gia + ", SoLuong=" + SoLuong + ", nhaCC=" + nhaCC + ", ChatLieu=" + ChatLieu + ", Size=" + Size + ", MauSac=" + MauSac + '}';
     }
-    
-//    public Object[] toDataRow(){
-//        return new Object[]{this.getMaSP(),this.getTenSP(),this.getGia(),this.getSoLuong(),this.getNgayNhap()};
-//    }
-    
-    
-    
-    public Object[] toRowTable(){
+
+     public Object[] toRowTable(){
         return new Object[]{
-            MaSP,TenSP,Gia,SoLuong, NgayNhap , tenLoai, trangThai == 1 ? "Còn hàng":"Hết hàng", XuatXu
+            MaSP,TenSP,gia ,SoLuong, nhaCC ,Size,ChatLieu,MauSac
         };
     }
 }

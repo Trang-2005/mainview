@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.SanPham;
 
+
 /**
  *
  * @author maytinh
@@ -47,12 +48,12 @@ public class SanPhamService implements iSanPham{
                 SanPham sp = new SanPham();
                 sp.setMaSP(rs.getString("MaSP"));
                 sp.setTenSP(rs.getString("TenSP"));
-//                sp.setGia((float) rs.getDouble("Gia"));
+                sp.setGia(rs.getInt("Gia"));
                 sp.setSoLuong(rs.getInt("SoLuong"));
-                sp.setNgayNhap(rs.getDate("NgayNhap"));
-                sp.setTenLoai(rs.getString("TenLoaiSP"));
-                sp.setTrangThai(rs.getInt("TrangThai"));
-                sp.setXuatXu(rs.getString("XuatXu"));
+                sp.setNhaCC(rs.getString("NhaCC"));
+                sp.setChatLieu(rs.getString("ChatLieu"));
+                sp.setSize(rs.getString("Size"));
+                sp.setMauSac(rs.getString("MauSac"));
                 sps.add(sp);
             }
             logger.log(Level.INFO, "Load sản phẩm thành công");
@@ -65,18 +66,18 @@ public class SanPhamService implements iSanPham{
 
     @Override
     public int them(SanPham sp) {
-        String sql = "INSERT INTO SanPham (MaSP, TenSP, Gia, SoLuong, NgayNhap,TenLoaiSP, TrangThai, XuatXu ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO SanPham (MaSP, TenSP, Gia, SoLuong, NhaCC, ChatLieu ,MauSac, Size ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection cnt = dcm.getConnection();
              PreparedStatement pre = cnt.prepareStatement(sql)) {
 
             pre.setString(1, sp.getMaSP());
             pre.setString(2, sp.getTenSP());
-            pre.setDouble(3, sp.getGia());
+            pre.setInt(3, sp.getGia());
             pre.setInt(4, sp.getSoLuong());
-            pre.setDate(5, sp.getNgayNhap());
-            pre.setString(6, sp.getTenLoai());
-            pre.setInt(7, sp.getTrangThai());
-            pre.setString(8, sp.getXuatXu());
+            pre.setString(5, sp.getNhaCC());
+            pre.setString(6, sp.getChatLieu());
+            pre.setString(7, sp.getMauSac());
+            pre.setString(8, sp.getSize());
 
             int rowsAffected = pre.executeUpdate();
             logger.log(Level.INFO, "Thêm sản phẩm mới: {0}", sp.toString());
@@ -89,17 +90,17 @@ public class SanPhamService implements iSanPham{
 
     @Override
     public int capnhat(SanPham sp) {
-        String sql = "UPDATE SanPham SET TenSP = ?, Gia = ?, SoLuong = ?, NgayNhap = ?, TenLoaiSP = ?, TrangThai = ?, XuatXu = ? WHERE MaSP = ?";
+        String sql = "UPDATE SanPham SET TenSP = ?, Gia = ?, SoLuong = ?, NhaCC = ?, MauSac = ?, ChatLieu = ?, Size = ? WHERE MaSP = ?";
         try (Connection cnt = dcm.getConnection();
              PreparedStatement pre = cnt.prepareStatement(sql)) {
 
             pre.setString(1, sp.getTenSP());
-            pre.setDouble(2, sp.getGia());
+            pre.setInt(2, sp.getGia());
             pre.setInt(3, sp.getSoLuong());
-            pre.setDate(4, sp.getNgayNhap());
-            pre.setString(5, sp.getTenLoai());
-            pre.setInt(6, sp.getTrangThai());
-            pre.setString(7, sp.getXuatXu());
+            pre.setString(4, sp.getNhaCC());
+            pre.setString(5, sp.getChatLieu());
+            pre.setString(6, sp.getMauSac());
+            pre.setString(7, sp.getSize());
             pre.setString(8, sp.getMaSP());
 
             int rowsAffected = pre.executeUpdate();

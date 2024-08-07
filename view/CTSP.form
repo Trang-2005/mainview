@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    <Component class="javax.swing.ButtonGroup" name="TrangThai">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -28,26 +28,29 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="lblGia" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblTen" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="lblSL" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblChatlieu" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblMauSac" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblKT" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTrangThai" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblMAct" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="rdoCon" min="-2" pref="91" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="rdoHet" min="-2" pref="91" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="lblGia" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblTen" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="lblSL" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblChatlieu" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMauSac" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMa" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNhaCC" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblKT" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="txtMa" alignment="0" pref="274" max="32767" attributes="0"/>
                   <Component id="txtTen" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtGia" alignment="0" max="32767" attributes="0"/>
@@ -55,8 +58,9 @@
                   <Component id="cbbKichThuoc" alignment="0" max="32767" attributes="0"/>
                   <Component id="cbbMauSac" alignment="0" max="32767" attributes="0"/>
                   <Component id="cbbChatlieu" alignment="0" pref="104" max="32767" attributes="0"/>
+                  <Component id="txtNha" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="138" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnThem" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSua" min="-2" max="-2" attributes="0"/>
@@ -66,7 +70,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="704" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -76,7 +80,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblMAct" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblMa" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtMa" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnThem" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -96,36 +100,30 @@
                   <Component id="lblSL" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtSL" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblChatlieu" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbbChatlieu" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="btnnew" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnnew" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblNhaCC" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblMauSac" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbbChatlieu" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblChatlieu" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cbbMauSac" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblMauSac" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblKT" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbbKichThuoc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblKT" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTrangThai" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rdoCon" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rdoHet" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="6" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="141" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -144,14 +142,14 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="8" rowCount="0">
-                <Column editable="true" title="M&#xe3; SPCT" type="java.lang.Object"/>
+                <Column editable="true" title="M&#xe3; SP" type="java.lang.Object"/>
                 <Column editable="true" title="T&#xea;n SP" type="java.lang.Object"/>
                 <Column editable="true" title="Gi&#xe1;" type="java.lang.Object"/>
                 <Column editable="true" title="S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.Object"/>
+                <Column editable="true" title="Nh&#xe0; Cung C&#x1ea5;p" type="java.lang.Object"/>
                 <Column editable="true" title="Ch&#x1ea5;t li&#x1ec7;u" type="java.lang.Object"/>
-                <Column editable="true" title="M&#xe0;u s&#x1eaf;c " type="java.lang.Object"/>
-                <Column editable="true" title="K&#xed;ch Th&#x1b0;&#x1edb;c" type="java.lang.Object"/>
-                <Column editable="true" title="Tr&#x1ea1;ng Th&#xe1;i" type="java.lang.Object"/>
+                <Column editable="true" title="M&#xe0;u s&#x1eaf;c" type="java.lang.Object"/>
+                <Column editable="true" title="Size" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -202,12 +200,15 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblSPCTMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="lblMAct">
+    <Component class="javax.swing.JLabel" name="lblMa">
       <Properties>
-        <Property name="text" type="java.lang.String" value="M&#xe3; SPCT"/>
+        <Property name="text" type="java.lang.String" value="M&#xe3; SP"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTen">
@@ -238,11 +239,6 @@
     <Component class="javax.swing.JLabel" name="lblKT">
       <Properties>
         <Property name="text" type="java.lang.String" value="K&#xed;ch th&#x1b0;&#x1edb;c"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTrangThai">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng th&#xe1;i"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtMa">
@@ -303,36 +299,36 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="rdoCon">
-      <Properties>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="buttonGroup1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="C&#xf2;n h&#xe0;ng"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="rdoHet">
-      <Properties>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="buttonGroup1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="H&#x1ebf;t h&#xe0;ng"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="btnThem">
       <Properties>
         <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSua">
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnnew">
       <Properties>
         <Property name="text" type="java.lang.String" value="L&#xe0;m m&#x1edb;i"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnnewActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNhaCC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nh&#xe0; Cung C&#x1ea5;p"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNha">
     </Component>
   </SubComponents>
 </Form>

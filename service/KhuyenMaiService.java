@@ -4,10 +4,9 @@
  */
 package service;
 
-import Interface.*;
+import Interface.iKhuyenMai;
 import Interface.iChiTietKhuyenMai;
-//import exceptions.ption.dbexception;
-import exceptions.khuyenmaiexception;
+import exceptions.KhuyenMaiException;
 import exceptions.dbexception;
 import java.io.IOException;
 import java.sql.Connection;
@@ -83,7 +82,7 @@ public class KhuyenMaiService implements iChiTietKhuyenMai, iKhuyenMai {
             return rowsAffected;
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Lỗi khi thêm chi tiết khuyến mãi", e);
-            throw new khuyenmaiexception("Lỗi khi thêm chi tiết khuyến mãi", e);
+            throw new KhuyenMaiException("Lỗi khi thêm chi tiết khuyến mãi", e);
         }
     }
 
@@ -105,7 +104,7 @@ public class KhuyenMaiService implements iChiTietKhuyenMai, iKhuyenMai {
             return rowsAffected;
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Lỗi khi cập nhật chi tiết khuyến mãi", e);
-            throw new khuyenmaiexception("Lỗi khi cập nhật chi tiết khuyến mãi", e);
+            throw new KhuyenMaiException("Lỗi khi cập nhật chi tiết khuyến mãi", e);
         }
     }
 
@@ -123,9 +122,10 @@ public class KhuyenMaiService implements iChiTietKhuyenMai, iKhuyenMai {
             return rowsAffected;
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Lỗi khi xóa chi tiết khuyến mãi", e);
-            throw new khuyenmaiexception("Lỗi khi xóa chi tiết khuyến mãi", e);
+            throw new KhuyenMaiException("Lỗi khi xóa chi tiết khuyến mãi", e);
         }
     }
+
 
     @Override
     public List<KhuyenMai> getAllKM() {
